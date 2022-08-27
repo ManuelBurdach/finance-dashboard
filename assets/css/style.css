@@ -1,0 +1,246 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap");
+#sidebarRight, #sidebarLeft, nav form, nav div, nav, button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#sidebarRight div:nth-of-type(3) div,
+#sidebarRight div:nth-of-type(2) div {
+  display: flex;
+  align-items: center;
+}
+
+#sidebarRight div div:nth-of-type(1) {
+  display: flex;
+  justify-content: space-between;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #edeff2;
+  font-family: "Roboto", sans-serif;
+}
+
+p {
+  color: #7d8fb3;
+}
+
+h1 {
+  display: none;
+  color: #4d5e80;
+}
+
+h2 {
+  font-size: 12px;
+  color: #6b7a99;
+}
+
+button {
+  cursor: pointer;
+  background-color: #fff;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  box-shadow: 1px 1px 10px rgba(224, 225, 227, 0.5);
+  margin: 15px 15px;
+}
+button:hover {
+  transform: scale(1.05);
+}
+
+.usernameOutput {
+  margin: 0 10px;
+  color: #6b7a99;
+}
+
+.show {
+  position: fixed;
+  top: 50vh;
+}
+.show img {
+  margin-right: -20px;
+}
+
+.left {
+  left: -40px;
+  z-index: 1;
+}
+
+.rigth {
+  right: -40px;
+  transform: rotate(180deg);
+  z-index: 1;
+}
+
+nav {
+  background-color: #edeff2;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 100px;
+  border-bottom: 2px solid #e0e1e3;
+  justify-content: space-between;
+}
+nav #navUserLg {
+  display: none;
+}
+nav a {
+  display: none;
+  text-decoration: none;
+  margin: 0 10px;
+  color: #7d8fb3;
+  font-weight: 100;
+}
+nav a:hover {
+  transform: scale(1.1);
+}
+nav form {
+  background-color: #fff;
+  height: 50px;
+  padding: 0 20px;
+  border-radius: 25px;
+}
+nav form img {
+  margin: 4px 0 0;
+}
+nav form input {
+  border: none;
+  line-height: 50px;
+  width: 45px;
+  margin: 0 10px;
+  color: #adb8cc;
+}
+nav form input::-moz-placeholder {
+  color: #adb8cc;
+}
+nav form input:-ms-input-placeholder {
+  color: #adb8cc;
+}
+nav form input::placeholder {
+  color: #adb8cc;
+}
+nav form input:focus {
+  border: none !important;
+  border-color: none !important;
+  box-shadow: none !important;
+  outline: none;
+  background-color: #fff;
+}
+nav form input:focus::-moz-placeholder {
+  color: #fff;
+}
+nav form input:focus:-ms-input-placeholder {
+  color: #fff;
+}
+nav form input:focus::placeholder {
+  color: #fff;
+}
+
+#sidebarLeft {
+  background-color: #edeff2;
+  position: fixed;
+  left: -70px;
+  top: 100px;
+  height: calc(100vh - 100px);
+  width: 80px;
+  border-right: 2px solid #e0e1e3;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#sidebarRight {
+  background-color: #edeff2;
+  position: fixed;
+  right: -290px;
+  top: 100px;
+  height: calc(100vh - 100px);
+  width: 300px;
+  border-left: 2px solid #e0e1e3;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#sidebarRight > div {
+  width: 100%;
+  padding: 10px;
+}
+#sidebarRight div:nth-of-type(1) div:nth-of-type(2) div {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+#sidebarRight div:nth-of-type(1) div:nth-of-type(2) button {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  background-color: #ff6633;
+  width: 40px;
+  height: 40px;
+}
+#sidebarRight div:nth-of-type(1) div:nth-of-type(2) button img {
+  filter: invert(0%) sepia(100%) saturate(0%) hue-rotate(21deg) brightness(100%) contrast(107%);
+}
+#sidebarRight div:nth-of-type(3) p,
+#sidebarRight div:nth-of-type(2) p {
+  margin-left: 15px;
+}
+#sidebarRight div:nth-of-type(3) button {
+  margin-bottom: 0;
+}
+
+main {
+  margin-top: 100px;
+  width: calc(100vw - 20px);
+  margin-left: 10px;
+  padding: 20px;
+}
+
+@media (min-width: 576px) {
+  nav #navUserSm {
+    display: none;
+  }
+  nav #navUserLg {
+    display: flex;
+  }
+  .left {
+    display: none;
+  }
+  #sidebarLeft {
+    left: 0px;
+  }
+  main {
+    margin-left: 80px;
+  }
+}
+@media (min-width: 992px) {
+  nav h1 {
+    display: block;
+  }
+  nav #navLinksSm {
+    display: none;
+  }
+  nav a {
+    display: flex;
+  }
+  .rigth {
+    display: none;
+  }
+  #sidebarRight {
+    right: 0px;
+  }
+  main {
+    width: calc(100vw - 380px);
+  }
+}
+@media (min-width: 1200px) {
+  nav form input {
+    width: 220px;
+  }
+}/*# sourceMappingURL=style.css.map */

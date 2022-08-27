@@ -1,0 +1,261 @@
+// IMPORTS --------------------------------
+@import "./variables";
+@import "./extend";
+@import "./mixin";
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap");
+
+// GENERAL --------------------------------
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $backgroundColor;
+  font-family: "Roboto", sans-serif;
+}
+
+p {
+  color: $paragraphColor;
+}
+
+h1 {
+  display: none;
+  color: $h1Color;
+}
+
+h2 {
+  font-size: 12px;
+  color: $usernameColor;
+}
+
+button {
+  @extend %flexCenter;
+  cursor: pointer;
+  background-color: $whiteColor;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  box-shadow: 1px 1px 10px $buttonShadowColor;
+  margin: 15px 15px;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+// CLASSES --------------------------------
+.usernameOutput {
+  margin: 0 10px;
+  color: $usernameColor;
+}
+
+.show {
+  position: fixed;
+  top: 50vh;
+  & img {
+    margin-right: -20px;
+  }
+}
+
+.left {
+  left: -40px;
+  z-index: 1;
+}
+.rigth {
+  right: -40px;
+  transform: rotate(180deg);
+  z-index: 1;
+}
+
+// NAV ------------------------------------
+nav {
+  background-color: $backgroundColor;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 100px;
+  border-bottom: 2px solid $borderColor;
+  @extend %flexCenter;
+  justify-content: space-between;
+  & #navUserLg {
+    display: none;
+  }
+  & div {
+    @extend %flexCenter;
+  }
+  & a {
+    display: none;
+    text-decoration: none;
+    margin: 0 10px;
+    color: $navLinkColor;
+    font-weight: 100;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  & form {
+    background-color: $whiteColor;
+    height: 50px;
+    padding: 0 20px;
+    @extend %flexCenter;
+    border-radius: 25px;
+    & img {
+      margin: 4px 0 0;
+    }
+    & input {
+      border: none;
+      line-height: 50px;
+      width: 45px;
+      margin: 0 10px;
+      color: $placeholderColor;
+      &::placeholder {
+        color: $placeholderColor;
+      }
+      &:focus {
+        border: none !important;
+        border-color: none !important;
+        box-shadow: none !important;
+        outline: none;
+        background-color: $whiteColor;
+      }
+      &:focus::placeholder {
+        color: $whiteColor;
+      }
+    }
+  }
+}
+
+// SIDEBAR LEFT ---------------------------
+#sidebarLeft {
+  background-color: $backgroundColor;
+  position: fixed;
+  left: -70px;
+  top: 100px;
+  height: calc(100vh - 100px);
+  width: 80px;
+  border-right: 2px solid $borderColor;
+  @extend %flexCenter;
+  flex-direction: column;
+  justify-content: space-between;
+}
+// SIDEBAR RIGHT --------------------------
+#sidebarRight {
+  background-color: $backgroundColor;
+  position: fixed;
+  right: -290px;
+  top: 100px;
+  height: calc(100vh - 100px);
+  width: 300px;
+  border-left: 2px solid $borderColor;
+  @extend %flexCenter;
+  flex-direction: column;
+  justify-content: space-between;
+  & > div {
+    width: 100%;
+    padding: 10px;
+  }
+  & div div:nth-of-type(1) {
+    @extend %flexSpaceBetween;
+  }
+  & div:nth-of-type(1) div:nth-of-type(2) {
+    & div {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+    & button {
+      position: absolute;
+      right: 30px;
+      top: 30px;
+      background-color: $orangeColor;
+      width: 40px;
+      height: 40px;
+      & img {
+        filter: invert(0%) sepia(100%) saturate(0%) hue-rotate(21deg) brightness(100%) contrast(107%);
+      }
+    }
+  }
+  & div:nth-of-type(3),
+  div:nth-of-type(2) {
+    & div {
+      @extend %flexCenter1;
+    }
+    & p {
+      margin-left: 15px;
+    }
+  }
+  & div:nth-of-type(3) button {
+    margin-bottom: 0;
+  }
+}
+// HEADER ---------------------------------
+// MAIN -----------------------------------
+main {
+  margin-top: 100px;
+  width: calc(100vw - 20px);
+  margin-left: 10px;
+  padding: 20px;
+}
+// FOOTER ---------------------------------
+
+// MEDIAQUERYS ---------------------------------
+
+@media (min-width: 576px) {
+  nav {
+    & #navUserSm {
+      display: none;
+    }
+    & #navUserLg {
+      display: flex;
+    }
+  }
+  .left {
+    display: none;
+  }
+  #sidebarLeft {
+    left: 0px;
+  }
+  main {
+    margin-left: 80px;
+  }
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 992px) {
+  nav {
+    & h1 {
+      display: block;
+    }
+    & #navLinksSm {
+      display: none;
+    }
+    & a {
+      display: flex;
+    }
+  }
+  .rigth {
+    display: none;
+  }
+  #sidebarRight {
+    right: 0px;
+  }
+  main {
+    width: calc(100vw - 380px);
+  }
+}
+
+@media (min-width: 1200px) {
+  nav {
+    & form {
+      & input {
+        width: 220px;
+      }
+    }
+  }
+}
