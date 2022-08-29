@@ -1,17 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap");
-#sidebarRight, #sidebarLeft, nav form, nav div, nav, button {
+#sidebarRigth, #sidebarLeft, nav form, nav div, nav, button {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-#sidebarRight div:nth-of-type(3) div,
-#sidebarRight div:nth-of-type(2) div {
+#sidebarRigth div:nth-of-type(3) div,
+#sidebarRigth div:nth-of-type(2) div {
   display: flex;
   align-items: center;
 }
 
-#sidebarRight div div:nth-of-type(1) {
+#sidebarRigth div div:nth-of-type(1) {
   display: flex;
   justify-content: space-between;
 }
@@ -43,6 +43,7 @@ h2 {
 
 button {
   cursor: pointer;
+  position: relative;
   background-color: #fff;
   border: none;
   width: 50px;
@@ -60,12 +61,32 @@ button:hover {
   color: #6b7a99;
 }
 
+.delete {
+  display: none;
+  position: absolute !important;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  border-radius: 8px;
+  left: 0px;
+  top: 0px;
+  color: #fff;
+  background-color: rgb(255, 0, 0);
+}
+.delete:hover {
+  transform: rotate(180deg);
+  transition: all 0.2s linear;
+}
+
 .show {
   position: fixed;
   top: 50vh;
 }
 .show img {
   margin-right: -20px;
+}
+.show button {
+  background-color: #4d5e80;
 }
 
 .left {
@@ -75,8 +96,32 @@ button:hover {
 
 .rigth {
   right: -40px;
-  transform: rotate(180deg);
   z-index: 1;
+  transform: rotate(180deg);
+}
+
+.aktivLeft {
+  left: 40px !important;
+  z-index: 0;
+}
+.aktivLeft img {
+  transform: rotate(180deg);
+}
+
+.aktivRigth {
+  right: 260px !important;
+  z-index: 0;
+}
+.aktivRigth img {
+  transform: rotate(180deg);
+}
+
+.toggleLeft {
+  left: 0px !important;
+}
+
+.toggleRigth {
+  right: 0px !important;
 }
 
 nav {
@@ -145,6 +190,7 @@ nav form input:focus::placeholder {
 }
 
 #sidebarLeft {
+  overflow: scroll;
   background-color: #edeff2;
   position: fixed;
   left: -70px;
@@ -155,8 +201,12 @@ nav form input:focus::placeholder {
   flex-direction: column;
   justify-content: space-between;
 }
+#sidebarLeft #favorits button:hover p {
+  display: block;
+}
 
-#sidebarRight {
+#sidebarRigth {
+  overflow: scroll;
   background-color: #edeff2;
   position: fixed;
   right: -290px;
@@ -167,16 +217,16 @@ nav form input:focus::placeholder {
   flex-direction: column;
   justify-content: space-between;
 }
-#sidebarRight > div {
+#sidebarRigth > div {
   width: 100%;
   padding: 10px;
 }
-#sidebarRight div:nth-of-type(1) div:nth-of-type(2) div {
+#sidebarRigth div:nth-of-type(1) div:nth-of-type(2) div {
   position: relative;
   display: flex;
   justify-content: center;
 }
-#sidebarRight div:nth-of-type(1) div:nth-of-type(2) button {
+#sidebarRigth div:nth-of-type(1) div:nth-of-type(2) button {
   position: absolute;
   right: 30px;
   top: 30px;
@@ -184,15 +234,17 @@ nav form input:focus::placeholder {
   width: 40px;
   height: 40px;
 }
-#sidebarRight div:nth-of-type(1) div:nth-of-type(2) button img {
+#sidebarRigth div:nth-of-type(1) div:nth-of-type(2) button img {
   filter: invert(0%) sepia(100%) saturate(0%) hue-rotate(21deg) brightness(100%) contrast(107%);
 }
-#sidebarRight div:nth-of-type(3) p,
-#sidebarRight div:nth-of-type(2) p {
+#sidebarRigth div:nth-of-type(3) p,
+#sidebarRigth div:nth-of-type(2) p {
   margin-left: 15px;
 }
-#sidebarRight div:nth-of-type(3) button {
-  margin-bottom: 0;
+#sidebarRigth div:nth-of-type(3) button,
+#sidebarRigth div:nth-of-type(2) button {
+  margin-bottom: 8px;
+  margin-top: 8px;
 }
 
 main {
@@ -232,7 +284,7 @@ main {
   .rigth {
     display: none;
   }
-  #sidebarRight {
+  #sidebarRigth {
     right: 0px;
   }
   main {

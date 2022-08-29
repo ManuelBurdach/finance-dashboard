@@ -34,6 +34,7 @@ h2 {
 button {
   @extend %flexCenter;
   cursor: pointer;
+  position: relative;
   background-color: $whiteColor;
   border: none;
   width: 50px;
@@ -52,11 +53,31 @@ button {
   color: $usernameColor;
 }
 
+.delete {
+  display: none;
+  position: absolute !important;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  border-radius: 8px;
+  left: 0px;
+  top: 0px;
+  color: $whiteColor;
+  background-color: $redColor;
+  &:hover {
+    transform: rotate(180deg);
+    transition: all 0.2s linear;
+  }
+}
+
 .show {
   position: fixed;
   top: 50vh;
   & img {
     margin-right: -20px;
+  }
+  & button {
+    background-color: $h1Color;
   }
 }
 
@@ -66,8 +87,32 @@ button {
 }
 .rigth {
   right: -40px;
-  transform: rotate(180deg);
   z-index: 1;
+  transform: rotate(180deg);
+}
+
+.aktivLeft {
+  left: 40px !important;
+  z-index: 0;
+  & img {
+    transform: rotate(180deg);
+  }
+}
+
+.aktivRigth {
+  right: 260px !important;
+  z-index: 0;
+  & img {
+    transform: rotate(180deg);
+  }
+}
+
+.toggleLeft {
+  left: 0px !important;
+}
+
+.toggleRigth {
+  right: 0px !important;
 }
 
 // NAV ------------------------------------
@@ -131,6 +176,7 @@ nav {
 
 // SIDEBAR LEFT ---------------------------
 #sidebarLeft {
+  overflow: scroll;
   background-color: $backgroundColor;
   position: fixed;
   left: -70px;
@@ -141,9 +187,15 @@ nav {
   @extend %flexCenter;
   flex-direction: column;
   justify-content: space-between;
+  & #favorits {
+    & button:hover p {
+      display: block;
+    }
+  }
 }
 // SIDEBAR RIGHT --------------------------
-#sidebarRight {
+#sidebarRigth {
+  overflow: scroll;
   background-color: $backgroundColor;
   position: fixed;
   right: -290px;
@@ -187,9 +239,10 @@ nav {
     & p {
       margin-left: 15px;
     }
-  }
-  & div:nth-of-type(3) button {
-    margin-bottom: 0;
+    & button {
+      margin-bottom: 8px;
+      margin-top: 8px;
+    }
   }
 }
 // HEADER ---------------------------------
@@ -242,7 +295,7 @@ main {
   .rigth {
     display: none;
   }
-  #sidebarRight {
+  #sidebarRigth {
     right: 0px;
   }
   main {
